@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --no-cache",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.1152.0",
+    "graphql-rate-limit": "^3.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "graphql-rate-limit-dynamodb",
+  "author": "THOUSAND SKY",
+  "module": "dist/graphql-rate-limit-dynamodb.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/graphql-rate-limit-dynamodb.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/graphql-rate-limit-dynamodb.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.105.0",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "aws-sdk": "^2.1152.0",
+    "aws-sdk-client-mock": "^0.6.2",
+    "graphql": "^16.5.0",
+    "graphql-middleware": "^6.1.29",
+    "graphql-rate-limit": "^3.3.0",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.105.0"
+  }
+}
