@@ -1,3 +1,4 @@
+// For sdk v2.
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 import { BaseDynamoStore, DynamoStoreProps } from '../dynamodb-store';
 
