@@ -22,3 +22,7 @@ const UserRateLimited = createRateLimitRule({
   }),
 });
 ```
+
+## Caveats
+
+I messed up the dev setup, it seems to be pulling both aws-sdk-v2 and aws-sdk-v2 into the bundle 😞.
