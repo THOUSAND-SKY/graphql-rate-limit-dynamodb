@@ -33,14 +33,14 @@ abstract class BaseDynamoStore implements Store {
     this._ttlField = opts.ttlField;
   }
 
-  protected abstract update({}: {
+  protected abstract update(input: {
     Key: any;
     UpdateExpression: string;
     ExpressionAttributeNames: any;
     ExpressionAttributeValues: any;
     TableName: string;
   }): Promise<any>;
-  protected abstract get({}: {
+  protected abstract get(input: {
     Key: any;
     TableName: string;
   }): Promise<{ Item?: { timestamps: readonly number[] } }>;
