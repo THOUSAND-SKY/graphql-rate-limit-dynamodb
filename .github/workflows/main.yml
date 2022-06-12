@@ -30,3 +30,8 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn semantic-release
