@@ -31,8 +31,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn semantic-release
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
