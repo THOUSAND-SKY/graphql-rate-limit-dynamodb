@@ -73,7 +73,7 @@ abstract class BaseDynamoStore implements Store {
     if (this._ttlField && expiry) {
       return {
         names: { '#ttlField': this._ttlField },
-        values: { ':ttlField': expiry * 1000 + Date.now() },
+        values: { ':ttlField': this.secs(expiry * 1000 + Date.now()) },
         updates: ' , #ttlField = :ttlField',
       };
     }
