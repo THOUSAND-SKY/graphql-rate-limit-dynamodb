@@ -41,6 +41,16 @@ test('DynamoStore sets and gets correct timestamps', async () => {
         'SET #timestamps = :timestamps , #ttlField = :ttlField'
       );
       expect(input.ExpressionAttributeValues[':ttlField']).toBeTruthy();
+      // Should be seconds, so less than this ms timestamp.
+      expect(input.ExpressionAttributeValues[':ttlField']).toBeLessThan(
+        // This value will be high because the timestamps we give in tests are low, and
+        // expiry time is calculated from those.
+        9655560725
+      );
+      // And more than this timestamp.
+      expect(input.ExpressionAttributeValues[':ttlField']).toBeGreaterThan(
+        1655560675
+      );
       expect(input.ExpressionAttributeNames['#ttlField']).toEqual('ttlField');
       expect(input.ExpressionAttributeValues[':timestamps']).toStrictEqual(
         value
